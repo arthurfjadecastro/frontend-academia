@@ -1,0 +1,42 @@
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Node.js (caso esteja usando pacotes npm ou yarn)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Pastas de build ou cache
+dist/
+build/
+.cache/
+.vscode/
+
+# Configurações do editor (exemplo: VS Code)
+*.code-workspace
+.vscode/
+
+# Configurações temporárias ou pessoais
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Configurações de sistema de controle de versão
+*.idea/
+*.iml
+*.ipr
+
+# Outros arquivos sensíveis
+.env
+*.key
+*.crt
+
+# Ignorar arquivos dentro da pasta assets que não devem subir
+assets/*.tmp
+assets/*.bak
