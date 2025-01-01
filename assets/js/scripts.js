@@ -106,49 +106,41 @@
   if ($("#clockdiv")[0]) {
     function getTimeElapsed(startDate) {
       const now = new Date();
-      let elapsed = now - startDate;
+      const elapsed = now - startDate;
 
-      // Calcula anos, meses, semanas e dias
-      const years = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 365));
-      elapsed %= 1000 * 60 * 60 * 24 * 365;
-
-      const months = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 30));
-      elapsed %= 1000 * 60 * 60 * 24 * 30;
-
-      const weeks = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 7));
-      elapsed %= 1000 * 60 * 60 * 24 * 7;
-
+      const seconds = Math.floor((elapsed / 1000) % 60);
+      const minutes = Math.floor((elapsed / (1000 * 60)) % 60);
+      const hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
       const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
 
       return {
-        years: years,
-        months: months,
-        weeks: weeks,
         days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
       };
     }
 
     function initializeClock(id, startDate) {
       const clock = document.getElementById(id);
-      const yearsSpan = clock.querySelector(".years");
-      const monthsSpan = clock.querySelector(".months");
-      const weeksSpan = clock.querySelector(".weeks");
       const daysSpan = clock.querySelector(".days");
+      const hoursSpan = clock.querySelector(".hours");
+      const minutesSpan = clock.querySelector(".minutes");
+      const secondsSpan = clock.querySelector(".seconds");
 
       function updateClock() {
-        const timeElapsed = getTimeElapsed(startDate);
+        const t = getTimeElapsed(startDate);
 
-        yearsSpan.innerHTML = timeElapsed.years;
-        monthsSpan.innerHTML = timeElapsed.months;
-        weeksSpan.innerHTML = timeElapsed.weeks;
-        daysSpan.innerHTML = timeElapsed.days;
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+        minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
       }
 
       updateClock();
-      setInterval(updateClock, 1000); // Atualiza a cada 1 segundo
+      setInterval(updateClock, 1000);
     }
 
-    // Define a data inicial do contador
     const startDate = new Date("2024-01-01T00:00:00");
     initializeClock("clockdiv", startDate);
   }
