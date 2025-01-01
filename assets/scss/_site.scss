@@ -4409,3 +4409,58 @@ width: 130px;
   border-radius: 2px;
 }
 
+.storm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000; /* Cor de fundo da barra de navegação */
+  padding: 10px 20px;
+}
+
+.brand-left {
+  flex: 0 0 auto;
+}
+
+.brand-left img {
+  display: block;
+}
+
+.brand-center {
+  flex: 1 1 auto;
+  // text-align: center;
+  display: grid;
+  justify-content: center;
+}
+
+.brand-highlight-container {
+  margin-bottom: 10px;
+}
+
+.brand-highlight {
+  font-size: 24px;
+  color: #ec2947; /* Cor do título */
+  font-weight: bold;
+}
+
+.link-navigation {
+  margin-top: 10px;
+}
+
+.nav-elements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 20px; /* Espaçamento entre os links */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff; /* Cor dos links */
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #ec2947; /* Cor ao passar o mouse */
+}

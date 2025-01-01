@@ -6062,3 +6062,97 @@ div .date {
   transform: translateX(-50%);
   border-radius: 2px;
 }
+
+.storm-header {
+  text-align: center; /* Centraliza o conteúdo */
+  padding: 20px; /* Espaçamento interno */
+}
+
+.brand-right {
+  display: flex;
+  flex-direction: column; /* Empilha o título e o menu verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+}
+
+.brand-highlight-container {
+  margin-bottom: 10px; /* Espaço entre o título e os itens de navegação */
+}
+
+.link-navigation {
+  margin-top: 10px;
+}
+
+.nav-elements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espaçamento entre os links */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px; /* Ajuste o tamanho conforme necessário */
+  color: #000; /* Ajuste a cor conforme o design */
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #ec2947; /* Cor ao passar o mouse */
+}
+
+.storm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #080808; /* Cor de fundo da barra de navegação */
+  padding: 10px 20px;
+}
+
+.brand-left {
+  flex: 0 0 auto;
+}
+
+.brand-left img {
+  display: block;
+}
+
+.brand-center {
+  flex: 1 1 auto;
+  // text-align: center;
+  display: grid;
+  justify-content: center;
+}
+
+.brand-highlight-container {
+  margin-bottom: 10px;
+}
+
+.brand-highlight {
+  font-size: 32px;
+  color: #ec2947; /* Cor do título */
+  font-weight: bold;
+}
+
+.link-navigation {
+  margin-top: 10px;
+}
+
+.nav-elements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 20px; /* Espaçamento entre os links */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff; /* Cor dos links */
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #ec2947; /* Cor ao passar o mouse */
+}
