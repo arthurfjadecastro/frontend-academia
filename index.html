@@ -816,34 +816,95 @@
     <!-- ========= S-TRAINING-SCHEDULE END ========= -->
 
     <!-- ================== FOOTER ================== -->
-	<section
+	<!-- <section
 	class="s-counter"
 	style="background-image: url(assets/img/bg-2.jpg)"
   >
 	<div class="mask"></div>
 	<div class="container">
 	  <h2 class="title-decor">Estamos <span>mudando vidas há</span></h2>
-<div id="clockdiv">
-  <div class="clock-item">
-    <span class="days">0</span>
-    <div class="smalltext">Dias</div>
-  </div>
-  <div class="clock-item">
-    <span class="hours">0</span>
-    <div class="smalltext">Horas</div>
-  </div>
-  <div class="clock-item">
-    <span class="minutes">0</span>
-    <div class="smalltext">Minutos</div>
-  </div>
-  <div class="clock-item">
-    <span class="seconds">0</span>
-    <div class="smalltext">Segundos</div>
-  </div>
-</div>
-
+	  <div id="clockdiv">
+		<div class="clock-item">
+		  <span class="days">0</span>
+		  <div class="smalltext">Dias</div>
+		</div>
+		<div class="clock-item">
+		  <span class="hours">0</span>
+		  <div class="smalltext">Horas</div>
+		</div>
+		<div class="clock-item">
+		  <span class="minutes">0</span>
+		  <div class="smalltext">Minutos</div>
+		</div>
+		<div class="clock-item">
+		  <span class="seconds">0</span>
+		  <div class="smalltext">Segundos</div>
+		</div>
+	  </div>
+	</div>
+  </section> -->
+  
+  <section class="s-counter">
+	<div class="container">
+	  <h2 class="title-decor">Estamos <span>mudando vidas há</span></h2>
+	  <div id="clockdiv">
+		<div class="clock-item">
+		  <span id="days">0</span>
+		  <div class="smalltext">Dias</div>
+		</div>
+		<div class="clock-item">
+		  <span id="hours">0</span>
+		  <div class="smalltext">Horas</div>
+		</div>
+		<div class="clock-item">
+		  <span id="minutes">0</span>
+		  <div class="smalltext">Minutos</div>
+		</div>
+		<div class="clock-item">
+		  <span id="seconds">0</span>
+		  <div class="smalltext">Segundos</div>
+		</div>
+	  </div>
 	</div>
   </section>
+  
+  <script>
+	function updateCounter() {
+	  const startDate = new Date("2024-01-01T00:00:00");
+	  const now = new Date();
+	  const elapsed = now - startDate;
+  
+	  const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+	  const hours = Math.floor((elapsed / (1000 * 60 * 60)) % 24);
+	  const minutes = Math.floor((elapsed / (1000 * 60)) % 60);
+	  const seconds = Math.floor((elapsed / 1000) % 60);
+  
+	  document.getElementById("days").textContent = days;
+	  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+	  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+	  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+	}
+  
+	// Atualiza o contador a cada segundo
+	setInterval(updateCounter, 1000);
+	updateCounter(); // Executa imediatamente na carga
+  </script>
+  
+  <style>
+	.s-counter {
+	  text-align: center;
+	  margin: 20px;
+	  font-family: Arial, sans-serif;
+	}
+	.clock-item {
+	  display: inline-block;
+	  margin: 10px;
+	}
+	.smalltext {
+	  font-size: 0.8rem;
+	  color: gray;
+	}
+  </style>
   
     <!-- ================== FOOTER ================== -->
 
