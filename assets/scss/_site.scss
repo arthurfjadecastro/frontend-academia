@@ -4202,3 +4202,209 @@ width: 130px;
     height: 100px;
   }
 }
+
+
+/* Storm Header */
+.storm-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #101010;
+  color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Adiciona sombra */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.storm-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Espaço entre logo, texto e navbar */
+  align-items: center;
+}
+
+/* Brand - Logo */
+.brand-left {
+  flex: 1;
+  text-align: left;
+}
+
+.brand-logo img {
+  display: block;
+}
+
+/* Brand - Texto */
+.brand-right {
+  flex: 1;
+  text-align: right;
+}
+
+.brand-highlight {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ec2947; /* Vermelho da marca */
+}
+
+/* Navbar */
+.link-navigation {
+  flex: 2;
+  text-align: center;
+}
+
+.nav-elements {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ec2947;
+}
+
+
+.brand-highlight {
+  font-family: "Bebas Neue", sans-serif; /* Fonte esportiva e limpa */
+  font-size: 2.5rem; /* Tamanho destacado */
+  font-weight: bold;
+  color: #ec2947; /* Vermelho vibrante */
+  text-transform: uppercase; /* Letras maiúsculas */
+  letter-spacing: 2px; /* Espaçamento ajustado */
+  background: linear-gradient(90deg, #ec2947, #791517);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Gradiente sutil no texto */
+  display: inline-block;
+  position: relative;
+  padding: 5px 10px; /* Pequeno espaçamento interno */
+}
+
+/* Linha abaixo do texto para um toque sutil */
+.brand-highlight::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 60%;
+  background-color: #ec2947;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px; /* Borda arredondada */
+}
+
+/* Fundo para destacar o texto de maneira sutil */
+.brand-highlight-container {
+  background: rgba(16, 16, 16, 0.8); /* Fundo escuro semi-transparente */
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 8px; /* Bordas suaves */
+}
+
+/* Storm Header */
+.storm-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #101010;
+  color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: space-between; /* Distribui os elementos uniformemente */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Adiciona sombra */
+  z-index: 1000;
+}
+
+/* Container */
+.storm-container {
+  display: flex;
+  width: 100%;
+  align-items: center; /* Garante alinhamento vertical */
+  justify-content: space-between; /* Garante alinhamento horizontal */
+}
+
+/* Brand - Logo */
+.brand-left {
+  flex: 1; /* Ocupa espaço proporcional */
+  text-align: left;
+}
+
+.brand-logo img {
+  display: block;
+}
+
+/* Brand - Texto */
+.brand-right {
+  flex: 1; /* Ocupa espaço proporcional */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Navbar */
+.link-navigation {
+  flex: 1; /* Ocupa espaço proporcional */
+  text-align: right; /* Alinha os itens à direita */
+}
+
+.nav-elements {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; /* Garante alinhamento à direita */
+  gap: 20px; /* Espaço entre os itens */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ec2947;
+}
+
+/* Texto Destacado */
+.brand-highlight {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ec2947, #791517);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.brand-highlight-container {
+  display: inline-block;
+  padding: 5px 10px;
+  background: rgba(16, 16, 16, 0.8);
+  border-radius: 8px;
+}
+
+.brand-highlight::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 60%;
+  background-color: #ec2947;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
