@@ -1,3 +1,5 @@
+console.log("scripts.js carregado com sucesso!");
+
 (function ($) {
   "use strict";
 
@@ -495,3 +497,24 @@
     }
   }
 })(jQuery);
+
+$(document).ready(function () {
+  $(".nav-link").on("click", function (event) {
+    event.preventDefault(); // Impede o comportamento padrão do link
+
+    // Obtém o ID da seção alvo a partir do href do link
+    const targetId = $(this).attr("href");
+    const targetElement = $(targetId);
+
+    // Verifica se o elemento existe para evitar erros
+    if (targetElement.length) {
+      $("html, body").animate(
+        {
+          scrollTop: targetElement.offset().top - 70, // Ajusta o deslocamento para o header fixo
+        },
+        800, // Duração da animação (800ms)
+        "swing" // Tipo de animação
+      );
+    }
+  });
+});
