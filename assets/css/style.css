@@ -6119,7 +6119,7 @@ div .date {
 
 .brand-center {
   flex: 1 1 auto;
-  // text-align: center;
+  text-align: center;
   display: grid;
   justify-content: center;
 }
