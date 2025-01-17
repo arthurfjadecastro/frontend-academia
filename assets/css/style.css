@@ -1645,6 +1645,7 @@ footer .social-list li {
 
 /*----------------- S-CROSSFIT-SLIDER -----------------*/
 .s-crossfit-slider {
+  margin-top: 100px;
   position: relative;
 }
 .s-crossfit-slider:before {
@@ -1663,7 +1664,7 @@ footer .social-list li {
 .slider-navigation {
   position: absolute;
   left: 50%;
-  bottom: 31%;
+  bottom: 10%;
   width: 100%;
   transform: translateX(-50%);
   z-index: 4;
@@ -1778,7 +1779,7 @@ footer .social-list li {
   transition: 0.25s cubic-bezier(0.26, 0.01, 0.22, 1.06);
 }
 .crossfit-slide .container {
-  min-height: 1024px;
+  min-height: 601px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2494,7 +2495,7 @@ blockquote:before {
 
 /*-------------------- S-CROSSFIT --------------------*/
 .s-crossfit {
-  padding: 128px 0 140px;
+  padding: 0px 0 140px;
 }
 .s-crossfit .container {
   position: relative;
@@ -2713,7 +2714,7 @@ blockquote:before {
 
 /*-------------------- S-CLUB-CARDS --------------------*/
 .s-club-cards {
-  padding: 128px 0 180px;
+  padding: 0px 0 180px;
 }
 .s-club-cards.club-cards-fitness {
   padding-bottom: 128px;

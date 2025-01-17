@@ -73,6 +73,7 @@
 /*----------------- S-CROSSFIT-SLIDER -----------------*/
 .s-crossfit-slider {
   position: relative;
+  margin-top: 100px;
   &:before {
     content: "";
     position: absolute;
@@ -89,7 +90,7 @@
 .slider-navigation {
   position: absolute;
   left: 50%;
-  bottom: 31%;
+  bottom: 10%;
   width: 100%;
   transform: translateX(-50%);
   z-index: 4;
@@ -1113,7 +1114,7 @@ width: 130px;
 
 /*-------------------- S-CLUB-CARDS --------------------*/
 .s-club-cards {
-  padding: 128px 0 180px;
+  padding: 0px 0 180px;
   &.club-cards-fitness {
     padding-bottom: 128px;
     .section-title-bg {
