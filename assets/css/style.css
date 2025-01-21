@@ -6022,7 +6022,7 @@ div .date {
 .nav-link {
   text-decoration: none;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -6041,6 +6041,19 @@ div .date {
   -webkit-text-fill-color: transparent;
   display: inline-block;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.brand-highlight2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ec2947, #791517);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-transform: capitalize;
   letter-spacing: 2px;
   position: relative;
 }
@@ -6156,4 +6169,162 @@ div .date {
 
 .nav-link:hover {
   color: #ec2947; /* Cor ao passar o mouse */
+}
+
+/* Estilo do Header */
+.storm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #101010;
+}
+
+.storm-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+/* Texto com Gradiente */
+.brand-highlight {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ec2947, #791517);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-transform: none; /* Permite o mix de upper e capitalize */
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Navegação */
+.link-navigation {
+  margin-top: 10px;
+}
+
+.nav-elements {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  justify-content: center;
+}
+
+.nav-link {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ec2947;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .brand-text {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .nav-elements {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Estilo do Header */
+.storm-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #101010;
+}
+
+.storm-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Elemento de Logo (à Esquerda) */
+.brand-left {
+  flex: 0 0 auto;
+}
+
+/* Conteúdo Centralizado */
+.brand-center {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* Espaço vazio à direita para equilíbrio */
+.brand-right {
+  flex: 0 0 auto;
+}
+
+/* Texto com Gradiente */
+.brand-highlight {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ec2947, #791517);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Navegação */
+.link-navigation {
+  margin-top: 10px;
+}
+
+.nav-elements {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ec2947;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .brand-text {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .nav-elements {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
