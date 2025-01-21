@@ -2,7 +2,7 @@
 <html lang="zxx">
   <head>
     <meta charset="UTF-8" />
-    <title>Strike - Gui</title>
+    <title>Guilherme Reis</title>
     <!-- =================== META =================== -->
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -78,17 +78,17 @@
 
         <div class="brand-center">
           <div class="">
-            <span class="brand-highlight">STRIKE MUAY THAI</span>
+            <span class="brand-highlight">Guilherme Reis</span>
           </div>
 
           <nav class="link-navigation">
             <ul class="nav-elements">
               <li><a href="#" class="nav-link">Home</a></li>
               <li><a href="#s-crossfit" class="nav-link">Sobre</a></li>
-              <li><a href="#s-club-cards" class="nav-link">Treinos</a></li>
               <li>
                 <a href="#s-training-schedule" class="nav-link">Horários</a>
               </li>
+              <li><a href="#s-club-cards" class="nav-link">Planos</a></li>
             </ul>
           </nav>
         </div>
@@ -307,18 +307,15 @@
         <h2>MUAY THAI</h2>
         <div class="text-bottom">
           TREINE
-          <a
-            href="https://api.whatsapp.com/send?phone=+5561996113238&text=Olá, estou interessado em começar a treinar Muay Thai. Gostaria de mais informações!"
-            target="_blank"
-            aria-label="Chat no WhatsApp"
-          >
-            AGORA!!!
-          </a>
+          <a href="#s-club-cards" aria-label="Chat no WhatsApp"> AGORA!!! </a>
         </div>
       </div>
     </section>
     <!-- ============ S-CLUB-CARDS END ============ -->
     <!-- =========== S-TRAINING-SCHEDULE =========== -->
+
+    <!-- ========= S-TRAINING-SCHEDULE END ========= -->
+
     <section
       id="s-training-schedule"
       class="s-training-schedule"
@@ -326,57 +323,147 @@
     >
       <div class="container">
         <h2 class="title-decor">HORÁRIO DE AULAS<span> EM TURMAS</span></h2>
-        <!-- <p class="slogan">
-       SEGUNDA / QUARTA / SEXTA 
-         </p> -->
         <div class="training-schedule-cover">
-          <h3 class="training-schedule-top">Calendário - 2025</h3>
+          <h3 class="training-schedule-top">
+            Calendário - <span id="year"></span>
+          </h3>
           <div class="training-schedule-table">
             <table>
               <thead>
                 <tr>
                   <th></th>
                   <th>Segunda-feira</th>
+                  <th>Terça-feira</th>
                   <th>Quarta-feira</th>
+                  <th>Quinta-feira</th>
                   <th>Sexta-feira</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>07h às 08h10</td>
+                  <td><h4>TURMA MISTA ADULTA</h4></td>
+                  <td></td>
+                  <td><h4>TURMA MISTA ADULTA</h4></td>
+                  <td></td>
+                  <td><h4>TURMA MISTA ADULTA</h4></td>
+                </tr>
+                <tr>
+                  <td>08h10 às 09h10</td>
                   <td>
-                    <h4>TURMA MISTA ADULTA</h4>
+                    <h4>
+                      FUTURA <br />
+                      TURMA KIDS
+                    </h4>
+                    <a
+                      href="https://api.whatsapp.com/send?phone=+5561996113238&text=Olá, gostaria de mais informações sobre a turma KIDS."
+                      target="_blank"
+                      aria-label="Chat no WhatsApp"
+                      class="contact-link"
+                    >
+                      Entre em contato
+                    </a>
                   </td>
+                  <td></td>
                   <td>
-                    <h4>TURMA MISTA ADULTA</h4>
+                    <h4>
+                      FUTURA <br />
+                      TURMA KIDS
+                    </h4>
+                    <a
+                      href="https://api.whatsapp.com/send?phone=+5561996113238&text=Olá, gostaria de mais informações sobre a turma KIDS."
+                      target="_blank"
+                      aria-label="Chat no WhatsApp"
+                      class="contact-link"
+                    >
+                      Entre em contato
+                    </a>
                   </td>
+                  <td></td>
                   <td>
-                    <h4>TURMA MISTA ADULTA</h4>
+                    <h4>
+                      FUTURA <br />
+                      TURMA KIDS
+                    </h4>
+                    <a
+                      href="https://api.whatsapp.com/send?phone=+5561996113238&text=Olá, gostaria de mais informações sobre a turma KIDS."
+                      target="_blank"
+                      aria-label="Chat no WhatsApp"
+                      class="contact-link"
+                    >
+                      Entre em contato
+                    </a>
                   </td>
+                </tr>
+                <tr>
+                  <td>15h às 16h</td>
+                  <td></td>
+                  <td>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
+                  </td>
+                  <td></td>
+                  <td>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>16h às 17h</td>
+                  <td></td>
+                  <td>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
+                  </td>
+                  <td></td>
+                  <td>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>17h às 18h</td>
+                  <td></td>
+                  <td>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
+                  </td>
+                  <td></td>
+                  <td>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
+                  </td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>18h às 19h</td>
+                  <td><h4>TURMA KIDS</h4></td>
                   <td>
-                    <h4>TURMA KIDS</h4>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
                   </td>
+                  <td><h4>TURMA KIDS</h4></td>
                   <td>
-                    <h4>TURMA KIDS</h4>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
                   </td>
-                  <td>
-                    <h4>TURMA KIDS</h4>
-                  </td>
+                  <td><h4>TURMA KIDS</h4></td>
                 </tr>
                 <tr>
                   <td>19h20 às 20h20</td>
+                  <td><h4>TURMA MISTA ADULTA</h4></td>
                   <td>
-                    <h4>TURMA MISTA ADULTA</h4>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
                   </td>
+                  <td><h4>TURMA MISTA ADULTA</h4></td>
                   <td>
-                    <h4>TURMA MISTA ADULTA</h4>
+                    <h4>PERSONAL FIGHT</h4>
+                    <span class="subtitle"><b>(Aula Particular)</b></span>
                   </td>
-                  <td>
-                    <h4>TURMA MISTA ADULTA</h4>
-                  </td>
+                  <td><h4>TURMA MISTA ADULTA</h4></td>
                 </tr>
               </tbody>
             </table>
@@ -384,13 +471,10 @@
         </div>
       </div>
     </section>
-    <!-- ========= S-TRAINING-SCHEDULE END ========= -->
 
-    <!-- escolha como quer treinar -->
     <section id="s-club-cards" class="s-club-cards">
       <div class="container">
         <h2 class="title-decor">Escolha <span>como quer treinar!</span></h2>
-        <!-- <p class="slogan">Maecenas consequat ex id lobortis venenatis. Mauris id erat enim. Morbi dolor dolor, auctor tincidunt lorem ut, venenatis dapibus miq.</p> -->
         <div class="row">
           <div class="col-md-4 club-card-col">
             <div
@@ -474,6 +558,24 @@
         </div>
       </div>
     </section>
+
+    <style>
+      .contact-link {
+        color: #007bff;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+      .contact-link:hover {
+        color: #0056b3;
+        text-decoration: none;
+      }
+
+      .subtitle {
+        font-size: 0.9em;
+        color: #666;
+      }
+    </style>
 
     <!--================ RELATED POSTS ================-->
     <section class="s-related-posts home-related-posts">
@@ -686,36 +788,7 @@
         </div>
       </div>
     </section>
-    <!--============== RELATED POSTS END ==============-->
 
-    <!-- ================== FOOTER ================== -->
-    <!-- <section
-	class="s-counter"
-	style="background-image: url(assets/img/bg-2.jpg)"
-  >
-	<div class="mask"></div>
-	<div class="container">
-	  <h2 class="title-decor">Estamos <span>mudando vidas há</span></h2>
-	  <div id="clockdiv">
-		<div class="clock-item">
-		  <span class="days">0</span>
-		  <div class="smalltext">Dias</div>
-		</div>
-		<div class="clock-item">
-		  <span class="hours">0</span>
-		  <div class="smalltext">Horas</div>
-		</div>
-		<div class="clock-item">
-		  <span class="minutes">0</span>
-		  <div class="smalltext">Minutos</div>
-		</div>
-		<div class="clock-item">
-		  <span class="seconds">0</span>
-		  <div class="smalltext">Segundos</div>
-		</div>
-	  </div>
-	</div>
-  </section> -->
     <!-- ============== S-TESTIMONIALS ============== -->
     <section
       class="s-testimonials"
@@ -891,57 +964,33 @@
       }
     </style>
 
+    <script>
+      // Obtém o ano atual e insere no elemento com o id "year"
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
     <!-- ================== FOOTER ================== -->
 
     <!-- ================== FOOTER ================== -->
     <footer>
       <div class="container">
-        <div style="display: flex; align-items: center" class="row">
+        <div style="display: flex; align-items: flex-start" class="row">
+          <!-- Coluna: Logo -->
           <div class="col-sm-6 col-lg-3 footer-item-logo">
-            <a href="index.html" class="logo-footer"
-              ><img width="196px" src="assets/img/logofc.png" alt="logo"
-            /></a>
-
-            <!-- <ul class="social-list">
-              <li>
-                <a target="_blank" href="https://www.instagram.com/rovadex"
-                  ><i  class="fa fa-instagram" aria-hidden="true"></i
-                ></a>
-              </li>
-            </ul> -->
+            <a href="index.html" class="logo-footer">
+              <img width="196px" src="assets/img/logofc.png" alt="logo" />
+            </a>
           </div>
 
-          <!-- <div class="col-sm-6 col-lg-3 footer-item footer-item-list">
-            <h3>Links</h3>
-            <ul class="footer-link">
-              <li><a href="#">Sed ut perspiciatis unde</a></li>
-              <li><a href="#">Omnis iste natus error sit</a></li>
-              <li><a href="#">Voluptatem accusantium</a></li>
-              <li><a href="#">Doloremque laudantium</a></li>
-            </ul>
-          </div> -->
+          <!-- Coluna: Contato e Redes Sociais -->
           <div class="col-sm-6 col-lg-3 footer-item">
-            <h3>Contato e Endereço</h3>
+            <h3>Contato e Redes Sociais</h3>
             <ul class="footer-cont">
+              <!-- WhatsApp -->
               <li>
-                <i class="fa fa-phone" aria-hidden="true"></i
-                ><a href="tel:+5561996113238">WhatsApp</a>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <a href="tel:+5561996113238">WhatsApp</a>
               </li>
-              <!-- <li>
-                <i class="fa fa-envelope" aria-hidden="true"></i
-                ><a href="mailto:crossFit@gmail.com"
-                  >strikeguilhermereis@gmail.com</a
-                >
-              </li> -->
-              <li>
-                <i class="fa fa-map-marker" aria-hidden="true"></i>(Ginásio) -
-                R. Florentino Chaves, Qd 58 - Lote 24b - Luziânia, GO, 72800-520
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-6 col-lg-3 footer-item">
-            <h3>Redes Sociais</h3>
-            <ul class="footer-cont">
               <!-- Instagram -->
               <li>
                 <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -949,68 +998,30 @@
                   >Instagram</a
                 >
               </li>
-              <!-- Facebook -->
-              <li>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-                <a href="https://www.facebook.com/seu_perfil" target="_blank"
-                  >Facebook</a
-                >
-              </li>
-              <!-- YouTube -->
-              <li>
-                <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                <a
-                  href="https://www.youtube.com/channel/seu_canal"
-                  target="_blank"
-                  >YouTube</a
-                >
-              </li>
             </ul>
           </div>
 
-          <!-- <div class="col-sm-6 col-lg-3 footer-item">
-            <h3>Blog</h3>
-            <ul class="footer-blog">
+          <!-- Coluna: Endereço -->
+          <div class="col-sm-6 col-lg-3 footer-item">
+            <h3>Endereço</h3>
+            <ul class="footer-cont">
               <li>
-                <a href="blog.html" class="img-cover"
-                  ><img src="assets/img/footer-icon-1.jpg" alt="img"
-                /></a>
-                <div class="footer-blog-info">
-                  <div class="name">
-                    <a href="blog.html">Sed ut perspiciatis</a>
-                  </div>
-                  <p>Omnis iste natus error sit voluptatem…</p>
-                </div>
-              </li>
-              <li>
-                <a href="blog.html" class="img-cover"
-                  ><img src="assets/img/footer-icon-2.jpg" alt="img"
-                /></a>
-                <div class="footer-blog-info">
-                  <div class="name">
-                    <a href="blog.html">Sed ut perspiciatis</a>
-                  </div>
-                  <p>Omnis iste natus error sit voluptatem…</p>
-                </div>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                (Ginásio) - R. Florentino Chaves, Qd 58 - Lote 24b - Luziânia,
+                GO, 72800-520
               </li>
             </ul>
-          </div> -->
+          </div>
         </div>
         <div class="footer-bottom">
           <div class="copyright">
-            <a href="#" target="_blank">Strike Muay Thai</a> © 2025. Todos os
+            <a href="#" target="_blank">Guilherme Reis</a> © 2025. Todos os
             direitos reservados.
           </div>
-          <!-- <ul class="footer-menu">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">News</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-          </ul> -->
         </div>
       </div>
     </footer>
+
     <!-- ================ FOOTER END ================ -->
 
     <!--=================== TO TOP ===================-->
