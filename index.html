@@ -17,6 +17,126 @@
     <link rel="stylesheet" href="assets/css/bootstrap-grid.css" />
     <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .carousel-item {
+        text-align: center;
+        padding: 30px;
+      }
+
+      .testimonial-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 auto;
+        max-width: 600px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        border: 3px solid #ec2947;
+      }
+
+      h4 {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        border: 3px solid #ec2947;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #f23849;
+        position: relative;
+      }
+
+      .avatar.no-image {
+        background-image: none; /* Remove qualquer imagem de fundo */
+      }
+
+      .avatar .avatar-text {
+        position: absolute;
+        font-size: 24px;
+        font-weight: bold;
+        color: #121212; /* Preto claro para contraste */
+      }
+      .avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        border: 3px solid #ec2947;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #f23849;
+        position: relative;
+      }
+
+      .avatar.no-image {
+        background-image: none; /* Remove imagem de fundo */
+      }
+
+      .avatar .avatar-text {
+        position: absolute;
+        font-size: 24px;
+        font-weight: bold;
+        color: #121212; /* Preto claro para contraste */
+      }
+
+      .testimonials-slider {
+        max-width: 1160px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .testimonials-slider .slick-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .testimonials-slider .slick-dots li {
+        cursor: pointer;
+        position: relative;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #bebebe;
+        margin-right: 8px;
+        transition: 0.25s ease-in;
+      }
+
+      .testimonials-slider .slick-dots li:hover,
+      .testimonials-slider .slick-dots li.slick-active {
+        background-color: #f23849;
+      }
+
+      .testimonials-slider .slick-dots li:last-child {
+        margin-right: 0;
+      }
+    </style>
   </head>
 
   <body id="home">
@@ -267,6 +387,125 @@
       </div>
     </section>
     <!-- ============== S-CROSSFIT END ============== -->
+    <!-- ============== S-TESTIMONIALS ============== -->
+    <section
+      class="s-testimonials"
+      style="background-image: url(assets/img/bg-testimonials.png)"
+    >
+      <div class="testimonials-effect"></div>
+      <div class="container">
+        <h2 class="title-decor">
+          O que dizem <span style="color: #ec2947">sobre nós</span>
+        </h2>
+        <div class="testimonials-slider">
+          <!-- Walter Evenicio -->
+          <div class="testimonial-slide">
+            <div
+              class="avatar"
+              style="background-image: url('assets/img/avatar-walter.png')"
+            ></div>
+            <p>
+              "Excelente estrutura, variedade de horário, professor com muito
+              conhecimento e didática, focando sempre no desenvolvimento de cada
+              pessoa. Recomendo!"
+            </p>
+            <h4 class="name">Walter Evenicio</h4>
+          </div>
+
+          <!-- Eugênia Gonçalves dos Santos -->
+          <div class="testimonial-slide">
+            <div
+              class="avatar"
+              style="background-image: url('assets/img/avatar-eugenia.png')"
+            ></div>
+            <p>
+              "As aulas do professor Guilherme são bem organizadas e o aluno
+              possui toda sua assistência no aprendizado da luta! Vem fazendo
+              toda diferença na vida de muitas pessoas que buscam a luta por
+              diversos motivos (Ansiedade, disciplina, condicionamento físico),
+              assim como fez na minha...Super indico!!!"
+            </p>
+            <h4 class="name">Eugênia Gonçalves dos Santos</h4>
+          </div>
+
+          <!-- Erika Sardinha -->
+          <div class="testimonial-slide">
+            <div
+              class="avatar"
+              style="background-image: url('assets/img/avatar-erika.png')"
+            ></div>
+            <p>
+              "Treinar uma arte marcial é um forte aliado no meu dia a dia e no
+              meu desenvolvimento pessoal e o CT Strike comandado pelo Guilherme
+              é um lugar de excelência. Ambiente organizado, limpo, seguro, o
+              instrutor sempre busca se atualizar, fazendo cursos e trazendo
+              novidades para nossos treinos. Vale a pena demais conhecer e fazer
+              parte dessa equipe!"
+            </p>
+            <h4 class="name">Erika Sardinha</h4>
+          </div>
+
+          <!-- Alinda Morrana -->
+          <div class="testimonial-slide">
+            <div
+              class="avatar"
+              style="background-image: url('assets/img/avatar-alinda.png')"
+            ></div>
+            <p>
+              "Super recomendo o CT e o professor Guilherme, ele é super
+              dinâmico, minha filha tá amando."
+            </p>
+            <h4 class="name">Alinda Morrana</h4>
+          </div>
+
+          <!-- Arthur de Castro -->
+          <div class="testimonial-slide">
+            <div
+              class="avatar"
+              style="background-image: url('assets/img/avatar-arthur.png')"
+            ></div>
+            <p>
+              "O professor Guilherme é muito dedicado e preocupado com os
+              alunos, demonstra, na mesma medida, um grande preparo para as
+              coletivas e sempre busca aperfeiçoamento."
+            </p>
+            <h4 class="name">Arthur de Castro</h4>
+          </div>
+
+          <!-- Gabriel Moura -->
+          <div class="testimonial-slide">
+            <div
+              class="avatar"
+              style="background-image: url('assets/img/avatar-gabriel.png')"
+            ></div>
+            <p>
+              "Ótimo lugar, bem localizado. instrutor responsável e muito
+              didático."
+            </p>
+            <h4 class="name">Gabriel Moura</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const swiper = new Swiper(".testimonials-slider", {
+        direction: "horizontal",
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+
+    <!-- ============ S-TESTIMONIALS END ============ -->
     <!-- ============ S-CROSSFIT-BANNER ============ -->
     <section class="s-crossfit-banner">
       <div
@@ -442,7 +681,6 @@
         </div>
       </div>
     </section>
-
     <section id="s-club-cards" class="s-club-cards">
       <div class="container">
         <h2 class="title-decor">Escolha <span>como quer treinar!</span></h2>
@@ -457,7 +695,13 @@
                 <div class="date"><span>,00</span>Mensal</div>
               </div>
               <ul class="list">
-                <li>Aulas em turma 3x na semana</li>
+                <li>
+                  <strong
+                    style="font-size: 18px; color: #ec2947; font-weight: bold"
+                    >Aulas em turma</strong
+                  >
+                  3x na semana
+                </li>
                 <li>Planos e Ofertas 3/6 meses</li>
                 <li>Energia e Motivação do Grupo</li>
                 <li>Conexões e Novas Amizades</li>
@@ -483,7 +727,13 @@
                 <div class="date"><span>,00</span>Mensal</div>
               </div>
               <ul class="list">
-                <li>Aula Particular (Personal Fight) 2x na semana</li>
+                <li>
+                  <strong
+                    style="font-size: 18px; color: #ec2947; font-weight: bold"
+                    >Aula Particular</strong
+                  >
+                  (Personal Fight) 2x na semana
+                </li>
                 <li>Planos e Ofertas para dupla</li>
                 <li>Planos e Ofertas 3/6 meses</li>
                 <li>Espaço e horário exclusivo para você</li>
@@ -510,8 +760,14 @@
                 <div class="date"><span>,00</span>por pessoa</div>
               </div>
               <ul class="list">
+                <li>
+                  <strong
+                    style="font-size: 18px; color: #ec2947; font-weight: bold"
+                    >Turma fechada</strong
+                  >
+                  2x na semana
+                </li>
                 <li>Mínimo 4 pessoas</li>
-                <li>Turma fechada 2x na semana</li>
                 <li>Espaço e horário exclusivo para vocês</li>
                 <li>Treine com amigos e familiares</li>
                 <li>Ritmo Adaptado ao grupo</li>
@@ -760,109 +1016,6 @@
       </div>
     </section>
 
-    <!-- ============== S-TESTIMONIALS ============== -->
-    <section
-      class="s-testimonials"
-      style="background-image: url(assets/img/bg-testimonials.jpg)"
-    >
-      <div class="mask"></div>
-      <img
-        class="testimonials-effect"
-        src="assets/img/bg-testimonials.svg"
-        alt="effect"
-      />
-      <div class="container">
-        <div class="testimonials-slider">
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-1.png" alt="img" />
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-2.png" alt="img" />
-            <h3 class="name">Mark Klark</h3>
-            <div class="prof">our client</div>
-          </div>
-          <div class="testimonial-slide">
-            <p>
-              “Phasellus vestibulum nec dolor quis varius. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Phasellus gravida magna sit
-              amet euismod lacinia. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit”
-            </p>
-            <img src="assets/img/testimonials-3.png" alt="img" />
-            <h3 class="name">Kat Smith</h3>
-            <div class="prof">our client</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ============ S-TESTIMONIALS END ============ -->
-
     <section class="s-counter">
       <div class="container">
         <h2 class="title-decor" style="font-size: 48px">
@@ -1015,6 +1168,14 @@
     <script src="assets/js/rx-lazy.js"></script>
     <script src="assets/js/parallax.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/fetchReviews.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <a
       href="https://api.whatsapp.com/send?phone=+5561996113238&text=Olá, gostaria de mais informações sobre o Strike Muay Thai."
       class="whatsapp-float"
@@ -1023,6 +1184,34 @@
     >
       <i class="fa fa-whatsapp whatsapp-icon"></i>
     </a>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <script>
+      $(document).ready(function () {
+        $(".testimonials-slider").slick({
+          slidesToShow: 1, // Mostra um slide por vez
+          slidesToScroll: 1, // Rola um slide por vez
+          dots: true, // Exibe os dots de navegação
+          infinite: true, // Loop infinito dos slides
+          autoplay: true, // Ativa a troca automática dos slides
+          autoplaySpeed: 2000, // Tempo entre cada slide (2 segundos)
+          speed: 500, // Velocidade da transição entre os slides (0,5 segundo)
+          arrows: true, // Habilita as setas de navegação
+          pauseOnHover: false, // Não pausa o autoplay ao passar o mouse
+          pauseOnDotsHover: false, // Não pausa o autoplay ao interagir com os dots
+          draggable: true, // Permite arrastar com o mouse
+        });
+      });
+    </script>
 
     <style>
       /* Estilo para o botão flutuante do WhatsApp */
