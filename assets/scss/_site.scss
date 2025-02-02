@@ -4627,3 +4627,103 @@ width: 130px;
 .white-text {
   color: white !important;
 }
+
+@media (max-width: 768px) {
+  .brand-highlight {
+    font-size: 1rem;
+    letter-spacing: 1px; /* Ajuste adicional para espaçamento menor */
+    text-align: center;
+  }
+
+  .nav-elements {
+    flex-direction: row; /* Correção: deve ser 'column' para layout vertical */
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+#s-crossfit > div > div > div:nth-child(1) > div > img {
+  max-width: 86px !important;
+}
+
+
+.hamburger-menu {
+  display: none;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100vh;
+  width: 200px;
+  background-color: #101010;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: right 0.3s ease-in-out;
+}
+
+.mobile-menu.hidden {
+  right: -250px;
+}
+
+.mobile-menu.visible {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .link-navigation .nav-elements {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  margin-bottom: 15px; /* Adiciona espaço entre os itens */
+}
+
+.mobile-menu ul li:last-child {
+  margin-bottom: 0; /* Remove espaço extra do último item */
+}
+
+.mobile-menu ul li a {
+  display: block; /* Garante que todo o espaço do link é clicável */
+  padding: 10px 0; /* Aumenta o espaçamento interno vertical */
+  text-align: center; /* Centraliza o texto */
+  font-size: 18px; /* Torna o texto maior para melhorar a usabilidade */
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+  color: #f23849; /* Cor de destaque ao passar o mouse */
+}

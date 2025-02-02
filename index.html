@@ -140,51 +140,71 @@
   </head>
 
   <body id="home">
-    <!--================ PRELOADER ================-->
-    <div class="preloader-cover">
-      <div id="cube-loader">
-        <div class="caption">
-          <div class="cube-loader">
-            <div class="cube loader-1"></div>
-            <div class="cube loader-2"></div>
-            <div class="cube loader-4"></div>
-            <div class="cube loader-3"></div>
-          </div>
-        </div>
+<!--================ PRELOADER ================-->
+<div class="preloader-cover">
+  <div id="cube-loader">
+    <div class="caption">
+      <div class="cube-loader">
+        <div class="cube loader-1"></div>
+        <div class="cube loader-2"></div>
+        <div class="cube loader-4"></div>
+        <div class="cube loader-3"></div>
       </div>
     </div>
-    <!--============== PRELOADER END ==============-->
+  </div>
+</div>
+<!--============== PRELOADER END ==============-->
 
-    <header class="storm-header">
-      <div class="storm-container">
-        <!-- Logo -->
-        <div class="brand-left">
-          <img width="96px" src="assets/img/logofc.png" alt="logo" />
-        </div>
+<header class="storm-header">
+  
+  <div class="storm-container">
+    
+    <!-- Logo -->
+    <div class="brand-left">
+      <img width="96px" src="assets/img/logofc.png" alt="logo" />
+    </div>
 
-        <!-- Conteúdo Centralizado -->
-        <div class="brand-center">
-          <div class="brand-text">
-            <span class="brand-highlight">MUAY THAI - Guilherme Reis</span>
-          </div>
-
-          <!-- Navegação -->
-          <nav class="link-navigation">
-            <ul class="nav-elements">
-              <li><a href="#" class="nav-link">Home</a></li>
-              <li><a href="#s-crossfit" class="nav-link">Benefícios</a></li>
-              <li>
-                <a href="#s-training-schedule" class="nav-link">Horários</a>
-              </li>
-              <li><a href="#s-club-cards" class="nav-link">Planos</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Espaço vazio para equilibrar o layout -->
-        <div class="brand-right"></div>
+    <!-- Conteúdo Centralizado -->
+    <div class="brand-center">
+      <div class="brand-text">
+        <span class="brand-highlight">MUAY THAI - Guilherme Reis</span>
       </div>
-    </header>
+      <!-- Menu Mobile -->
+<!-- Menu Mobile -->
+<div class="mobile-menu hidden" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">&times;</button>
+  <ul>
+    <li><a href="#" class="nav-link">Home</a></li>
+    <li><a href="#s-crossfit" class="nav-link">Benefícios</a></li>
+    <li><a href="#s-training-schedule" class="nav-link">Horários</a></li>
+    <li><a href="#s-club-cards" class="nav-link">Planos</a></li>
+  </ul>
+</div>
+
+
+      <!-- Navegação -->
+      <nav class="link-navigation">
+        <ul class="nav-elements">
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li><a href="#s-crossfit" class="nav-link">Benefícios</a></li>
+          <li><a href="#s-training-schedule" class="nav-link">Horários</a></li>
+          <li><a href="#s-club-cards" class="nav-link">Planos</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Menu Hambúrguer -->
+    <div class="hamburger-menu">
+      <button class="hamburger-icon" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
 
     <!-- ============ S-CROSSFIT-SLIDER ============ -->
     <section class="s-crossfit-slider">
@@ -333,10 +353,10 @@
           <div class="col-md-4 crossfit-col">
             <div class="crossfit-item">
               <img
-                src="assets/img/strength_2958939.png"
-                data-src="assets/img/strength_2958939.png"
+                class="rx-lazy"
+                src="assets/img/placeholder-all.png"
+                data-src="assets/img/serv-4.svg"
                 alt="img"
-                class="crossfit-icon-1 rx-lazy"
               />
               <h3>Saúde Mental e Disciplina</h3>
               <p>
@@ -1202,6 +1222,34 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.querySelector(".hamburger-icon");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenuButton = document.getElementById("closeMenu");
+    
+        // Abrir o menu ao clicar no botão hambúrguer
+        menuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("visible");
+        });
+    
+        // Fechar o menu ao clicar no botão "X"
+        closeMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("visible");
+        });
+    
+        // Fechar o menu ao clicar em um link
+        document.querySelectorAll(".mobile-menu .nav-link").forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("visible");
+          });
+        });
+      });
+    </script>
+    
 
     <script>
       $(document).ready(function () {
