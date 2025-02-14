@@ -174,25 +174,20 @@
 <div class="mobile-menu hidden" id="mobileMenu">
   <button class="close-menu" id="closeMenu">&times;</button>
   <ul>
-    <li><a href="#" class="nav-link">Home</a></li>
-    <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
-    <!-- <li><a href="#s-training-schedule" class="nav-link">Horários</a></li> -->
-    <li><a href="#planos" class="nav-link">Planos</a></li>
+      <!-- <li><a href="/" class="nav-link">Home</a></li> -->
+      <li><a href="/beneficios" class="nav-link">Benefícios</a></li>
+      <li><a href="/planos" class="nav-link">Planos</a></li>
   </ul>
 </div>
 
 
-
-      <!-- Navegação -->
-      <nav class="link-navigation">
-        <ul class="nav-elements">
-          <li><a href="#" class="nav-link">Home</a></li>
-          <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
-          <!-- <li><a href="#s-training-schedule" class="nav-link">Horários</a></li> -->
-          <li><a href="#planos" class="nav-link">Planos</a></li>
-        </ul>
-      </nav>
-    </div>
+<nav class="link-navigation">
+  <ul class="nav-elements">
+      <!-- <li><a href="/" class="nav-link">Home</a></li> -->
+      <li><a href="/beneficios" class="nav-link">Benefícios</a></li>
+      <li><a href="/planos" class="nav-link">Planos</a></li>
+  </ul>
+</nav>
 
     <!-- Menu Hambúrguer -->
     <div class="hamburger-menu">
@@ -1263,6 +1258,31 @@
         });
       });
     </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const path = window.location.pathname;
+      
+      // Mapeamento de URLs para seções na página
+      const sectionMap = {
+          "/beneficios": "#s-crossfit",
+          "/planos": "#s-club-cards"
+      };
+
+      if (sectionMap[path]) {
+          const targetSection = document.querySelector(sectionMap[path]);
+          if (targetSection) {
+              setTimeout(() => {
+                  window.scrollTo({
+                      top: targetSection.offsetTop - 50, // Ajuste para header fixo
+                      behavior: "smooth"
+                  });
+              }, 200);
+          }
+      }
+  });
+</script>
+
     
 
     <script>
@@ -1310,5 +1330,50 @@
         font-size: 28px;
       }
     </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sectionMap = {
+            "/beneficios": "#s-crossfit",
+            "/planos": "#s-club-cards"
+        };
+  
+        function scrollToSection(sectionId) {
+            const targetSection = document.querySelector(sectionId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80, // Ajuste para cabeçalho fixo
+                    behavior: "smooth"
+                });
+            }
+        }
+  
+        // Capturar clique nos links de navegação
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", function (event) {
+                const targetPath = new URL(this.href, window.location.origin).pathname;
+                
+                if (sectionMap[targetPath]) {
+                    event.preventDefault(); // Previne recarregamento da página
+  
+                    // Atualiza a URL sem recarregar
+                    window.history.pushState({}, "", targetPath);
+  
+                    // Rola para a seção correspondente
+                    scrollToSection(sectionMap[targetPath]);
+                }
+            });
+        });
+  
+        // Se o usuário acessar diretamente uma URL como /beneficios ou /planos
+        const currentPath = window.location.pathname;
+        if (sectionMap[currentPath]) {
+            setTimeout(() => {
+                scrollToSection(sectionMap[currentPath]);
+            }, 300);
+        }
+    });
+  </script>
+  
+    
   </body>
 </html>
