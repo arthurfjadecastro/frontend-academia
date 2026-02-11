@@ -6982,3 +6982,188 @@ div .date {
     height: 55px;
   }
 }
+
+/* ============================================
+   SPIRITTHAI - FOOTER MODERNO
+   ============================================ */
+
+.footer-modern {
+  position: relative;
+  background: linear-gradient(180deg, #0a0a0a 0%, #151515 50%, #0d0d0d 100%);
+  padding: 60px 0 30px;
+  overflow: hidden;
+}
+
+.footer-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(236, 41, 71, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(236, 41, 71, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.footer-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ec2947, #ff6b6b, #ec2947, transparent);
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer-item-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo-wrapper {
+  text-align: center;
+}
+
+.footer-modern .footer-logo {
+  width: 150px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: all 0.4s ease;
+  margin-bottom: 15px;
+}
+
+.footer-modern .footer-logo:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(236, 41, 71, 0.5));
+  transform: scale(1.05);
+}
+
+.footer-tagline {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.footer-modern .footer-item {
+  padding: 0 20px;
+}
+
+.footer-modern .footer-item h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-modern .footer-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #ec2947, transparent);
+}
+
+.footer-modern .footer-cont {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-modern .footer-cont li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-modern .footer-cont li i {
+  color: #ec2947;
+  font-size: 1.1rem;
+  margin-top: 2px;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-modern .footer-cont li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-modern .footer-cont li a:hover {
+  color: #ec2947;
+  padding-left: 5px;
+}
+
+.footer-modern .footer-bottom {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-modern .footer-bottom p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Responsividade Footer */
+@media (max-width: 991px) {
+  .footer-modern {
+    padding: 50px 0 25px;
+  }
+  
+  .footer-content {
+    text-align: center;
+  }
+  
+  .footer-item-logo {
+    margin-bottom: 30px;
+  }
+  
+  .footer-modern .footer-item {
+    margin-bottom: 30px;
+  }
+  
+  .footer-modern .footer-item h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-modern .footer-cont li {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-modern .footer-logo {
+    width: 120px;
+  }
+  
+  .footer-tagline {
+    font-size: 0.8rem;
+  }
+}
