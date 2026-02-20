@@ -1646,7 +1646,8 @@ footer .social-list li {
 
 /*----------------- S-CROSSFIT-SLIDER -----------------*/
 .s-crossfit-slider {
-  margin-top: 100px;
+  /* Offset igual à altura da navbar fixa */
+  margin-top: var(--navbar-height, 80px);
   position: relative;
 }
 .s-crossfit-slider:before {
@@ -2541,6 +2542,15 @@ blockquote:before {
   margin-top: 0;
   opacity: 1;
 }
+/* Ícones dos cards - tamanho consistente */
+.crossfit-item img {
+  max-width: 130px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .crossfit-item h3 {
   text-transform: uppercase;
   margin: 25px 0 6px;
@@ -5988,577 +5998,854 @@ div .date {
   margin-top: 2px;
   color: #fcbd56 !important;
 }
-/* Storm Header */
-.storm-header {
+
+/* =================== NAVBAR GLASS - PREMIUM DESIGN =================== */
+
+/* === Design Tokens === */
+:root {
+  /* 
+   * DECISÃO DE DESIGN:
+   * Altura 84px para mais presença visual.
+   * Logo 44px para maior destaque do elefante.
+   * Shrink para 70px/36px mantém proporção.
+   */
+  --navbar-height: 84px;
+  --navbar-height-shrink: 70px;
+  
+  /* Cores */
+  --navbar-bg: rgba(0, 0, 0, 0.65);
+  --navbar-bg-scroll: rgba(0, 0, 0, 0.92);
+  --navbar-blur: 12px;
+  --color-primary: #ec2947;
+  --color-accent: #fcbd56;
+  --color-white: #ffffff;
+  --color-white-muted: rgba(255, 255, 255, 0.7);
+  
+  /* Tipografia */
+  --font-nav: 13px;
+  --font-nav-family: "Poppins", sans-serif;
+  
+  /* 
+   * ESPAÇAMENTOS:
+   * Logo aumentada para 44px (era 36px).
+   * Gap do lockup 14px para acompanhar.
+   */
+  --navbar-content-max: 1280px;
+  --navbar-padding-x: 24px;
+  --logo-height: 62px;
+  --logo-height-shrink: 50px;
+  --lockup-gap: 14px;
+  --cta-height: 42px;
+  --cta-padding-x: 20px;
+  --cta-radius: 14px;
+  --nav-gap: 28px;
+  
+  /* Transições */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+  
+  /* Scroll offset para anchors (navbar sticky) */
+  --scroll-offset: calc(var(--navbar-height) + 16px);
+}
+
+/* === Scroll Offset para Anchors (navbar sticky) === */
+#beneficios,
+#turmas,
+#contato,
+[id^="s-"] {
+  scroll-margin-top: var(--scroll-offset, 96px);
+}
+
+/* Smooth scroll global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* === Navbar Principal === */
+.navbar-glass {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #101010;
-  color: #ffffff;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center; /* Alinha verticalmente ao centro */
-  justify-content: space-between; /* Distribui os elementos uniformemente */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Adiciona sombra */
+  height: var(--navbar-height);
+  background: var(--navbar-bg);
+  backdrop-filter: blur(var(--navbar-blur));
+  -webkit-backdrop-filter: blur(var(--navbar-blur));
+  border-bottom: 1px solid rgba(236, 41, 71, 0.15);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
   z-index: 1000;
+  transition: height var(--transition-normal), 
+              background var(--transition-normal),
+              box-shadow var(--transition-normal);
 }
 
-/* Container */
-.storm-container {
+/* Estado Scrolled (shrink) */
+.navbar-glass.scrolled {
+  height: var(--navbar-height-shrink);
+  background: var(--navbar-bg-scroll);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* === Container da Navbar (Flexbox space-between) === */
+.navbar-container {
   display: flex;
-  width: 100%;
-  align-items: center; /* Garante alinhamento vertical */
-  justify-content: space-between; /* Garante alinhamento horizontal */
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--navbar-content-max);
+  margin: 0 auto;
+  padding: 0 var(--navbar-padding-x);
+  box-sizing: border-box;
 }
 
-/* Brand - Logo */
-.brand-left {
-  flex: 1; /* Ocupa espaço proporcional */
-  text-align: left;
+/* === ZONA ESQ: Brand Lockup (Logo + SPIRITTHAI) === */
+.navbar-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--lockup-gap);
+  height: 100%;
+  flex-shrink: 0;
 }
 
-.brand-logo img {
+.navbar-logo {
+  height: var(--logo-height);
+  width: auto;
   display: block;
+  object-fit: contain;
+  /* LOGO BRANCA - obrigatório */
+  filter: brightness(0) invert(1);
+  /* Sem animações */
+  transition: height var(--transition-normal);
 }
 
-/* Brand - Texto */
-.brand-right {
-  flex: 1; /* Ocupa espaço proporcional */
-  text-align: center; /* Centraliza o texto */
+.navbar-glass.scrolled .navbar-logo {
+  height: var(--logo-height-shrink);
 }
 
-/* Navbar */
-.link-navigation {
-  flex: 1; /* Ocupa espaço proporcional */
-  text-align: right; /* Alinha os itens à direita */
-}
-
-.nav-elements {
-  list-style: none;
-  display: flex;
-  justify-content: flex-end; /* Garante alinhamento à direita */
-  gap: 20px; /* Espaço entre os itens */
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #ec2947;
-}
-
-/* Texto Destacado */
-.brand-highlight {
+.navbar-brand-text {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ec2947, #791517);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-primary);
+  letter-spacing: 3px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  transition: font-size var(--transition-normal);
+}
+
+.navbar-glass.scrolled .navbar-brand-text {
+  font-size: 20px;
+}
+
+/* === ZONA CENTRO: Links de navegação === */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: var(--nav-gap);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar-link {
+  font-family: var(--font-nav-family);
+  font-size: var(--font-nav);
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  line-height: 1;
   position: relative;
+  transition: color var(--transition-fast);
+  outline-offset: 4px;
 }
 
-.brand-highlight2 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ec2947, #791517);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  position: relative;
+.navbar-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  border-radius: 2px;
 }
 
-.brand-highlight-container {
-  display: inline-block;
-  padding: 5px 10px;
-  background: rgba(16, 16, 16, 0.8);
-  border-radius: 8px;
-}
-
-.brand-highlight::after {
+/* Underline animado no hover (amarelo/dourado) */
+.navbar-link::after {
   content: "";
   position: absolute;
-  height: 3px;
-  width: 60%;
-  background-color: #ec2947;
-  bottom: -5px;
+  bottom: 0;
   left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
   transform: translateX(-50%);
-  border-radius: 2px;
+  transition: width var(--transition-normal);
+  border-radius: 1px;
 }
 
-.storm-header {
-  text-align: center; /* Centraliza o conteúdo */
-  padding: 20px; /* Espaçamento interno */
+.navbar-link:hover {
+  color: var(--color-accent);
 }
 
-.brand-right {
-  display: flex;
-  flex-direction: column; /* Empilha o título e o menu verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
+.navbar-link:hover::after {
+  width: 100%;
 }
 
-.brand-highlight-container {
-  margin-bottom: 10px; /* Espaço entre o título e os itens de navegação */
+/* Estado ativo (vermelho) */
+.navbar-link.active {
+  color: var(--color-primary);
 }
 
-.link-navigation {
-  margin-top: 10px;
+.navbar-link.active::after {
+  width: 100%;
+  background: var(--color-primary);
 }
 
-.nav-elements {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px; /* Espaçamento entre os links */
-}
-
-.nav-link {
-  text-decoration: none;
-  font-size: 16px; /* Ajuste o tamanho conforme necessário */
-  color: #000; /* Ajuste a cor conforme o design */
-  font-weight: bold;
-}
-
-.nav-link:hover {
-  color: #ec2947; /* Cor ao passar o mouse */
-}
-
-.storm-header {
+/* === ZONA DIR: CTA + Hamburger === */
+.navbar-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #080808; /* Cor de fundo da barra de navegação */
-  padding: 10px 20px;
+  gap: 16px;
+  height: 100%;
+  flex-shrink: 0;
 }
 
-.brand-left {
-  flex: 0 0 auto;
-}
-
-.brand-left img {
-  display: block;
-}
-
-.brand-center {
-  flex: 1 1 auto;
-  text-align: center;
-  display: grid;
-  justify-content: center;
-}
-
-.brand-highlight-container {
-  margin-bottom: 10px;
-}
-
-.brand-highlight {
-  font-size: 32px;
-  color: #ec2947; /* Cor do título */
-  font-weight: bold;
-}
-
-.link-navigation {
-  margin-top: 10px;
-}
-
-.nav-elements {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* === Botão CTA === */
+.navbar-cta {
   display: inline-flex;
-  gap: 20px; /* Espaçamento entre os links */
-}
-
-.nav-link {
-  text-decoration: none;
-  font-size: 16px;
-  color: #fff; /* Cor dos links */
-  font-weight: bold;
-}
-
-.nav-link:hover {
-  color: #ec2947; /* Cor ao passar o mouse */
-}
-
-/* Estilo do Header */
-.storm-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #101010;
-}
-
-.storm-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-
-/* Texto com Gradiente */
-.brand-highlight {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ec2947, #791517);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  text-transform: none; /* Permite o mix de upper e capitalize */
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-/* Navegação */
-.link-navigation {
-  margin-top: 10px;
-}
-
-.nav-elements {
-  display: flex;
-  list-style: none;
-  gap: 15px;
   justify-content: center;
-}
-
-.nav-link {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffffff;
+  gap: 8px;
+  font-family: var(--font-nav-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-white);
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+  /* Altura fixa para alinhamento */
+  height: var(--cta-height);
+  padding: 0 var(--cta-padding-x);
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--cta-radius);
+  /* Line-height 1 para baseline preciso */
+  line-height: 1;
+  transition: background var(--transition-normal), 
+              box-shadow var(--transition-normal), 
+              transform var(--transition-normal);
+  outline-offset: 2px;
+  /* Flex-shrink para não colapsar */
+  flex-shrink: 0;
 }
 
-.nav-link:hover {
-  color: #ec2947;
+.navbar-cta:focus-visible {
+  outline: 2px solid var(--color-accent);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .brand-text {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .nav-elements {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+.navbar-cta:hover {
+  background: #d42240;
+  box-shadow: 0 4px 20px rgba(236, 41, 71, 0.5);
+  transform: translateY(-2px);
 }
 
-/* Estilo do Header */
-.storm-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #101010;
+.navbar-cta .cta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
-.storm-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-/* Elemento de Logo (à Esquerda) */
-.brand-left {
-  flex: 0 0 auto;
-}
-
-/* Conteúdo Centralizado */
-.brand-center {
-  flex: 1 1 auto;
-  text-align: center;
-}
-
-/* Espaço vazio à direita para equilíbrio */
-.brand-right {
-  flex: 0 0 auto;
-}
-
-/* Texto com Gradiente */
-.brand-highlight {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ec2947, #791517);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  text-transform: none;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-/* Navegação */
-.link-navigation {
-  margin-top: 10px;
-}
-
-.nav-elements {
-  display: flex;
-  list-style: none;
-  gap: 15px;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-link {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #ec2947;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .brand-text {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .nav-elements {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-.white-text {
-  color: white !important;
-}
-
-@media (max-width: 768px) {
-  .brand-highlight {
-    font-size: 1rem;
-    letter-spacing: 1px; /* Ajuste adicional para espaçamento menor */
-    text-align: center;
-  }
-
-  .nav-elements {
-    flex-direction: row; /* Correção: deve ser 'column' para layout vertical */
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-#s-crossfit > div > div > div:nth-child(1) > div > img {
-  max-width: 86px !important;
-}
-
-.hamburger-menu {
+/* === Hamburger === */
+.navbar-hamburger {
   display: none;
-}
-
-.hamburger-icon {
-  display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
-  background: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: transparent;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background var(--transition-fast);
 }
 
-.hamburger-icon span {
-  width: 30px;
-  height: 3px;
-  background-color: white;
+.navbar-hamburger:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-hamburger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.hamburger-bar {
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
   border-radius: 2px;
+  transition: all var(--transition-normal);
 }
 
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  height: 100vh;
-  width: 200px;
-  background-color: #101010;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  transition: right 0.3s ease-in-out;
+.navbar-hamburger[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.mobile-menu.hidden {
-  right: -250px;
+.navbar-hamburger[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
 }
 
-.mobile-menu.visible {
-  right: 0;
-  /* height: auto; */
+.navbar-hamburger[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
-  .link-navigation .nav-elements {
-    display: none;
-  }
-
-  .hamburger-menu {
-    display: flex;
-  }
-}
-
-.close-menu {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-}
-
-.close-menu:hover {
-  color: #f23849; /* Vermelho ao passar o mouse */
-}
-
-.mobile-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mobile-menu ul li {
-  margin-bottom: 15px; /* Adiciona espaço entre os itens */
-}
-
-.mobile-menu ul li:last-child {
-  margin-bottom: 0; /* Remove espaço extra do último item */
-}
-
-.mobile-menu ul li a {
-  display: block; /* Garante que todo o espaço do link é clicável */
-  padding: 10px 0; /* Aumenta o espaçamento interno vertical */
-  text-align: center; /* Centraliza o texto */
-  font-size: 18px; /* Torna o texto maior para melhorar a usabilidade */
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.mobile-menu ul li a:hover {
-  color: #f23849; /* Cor de destaque ao passar o mouse */
-}
-
-]
-/* Estilo do fundo do menu */
-.mobile-menu {
+/* === Mobile Drawer === */
+.mobile-drawer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* Fundo escuro com opacidade */
-  z-index: 1000;
-  display: none; /* Mantém oculto até ser ativado */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
+  z-index: 1001;
+  pointer-events: none;
+  visibility: hidden;
 }
 
-/* Menu visível */
-.mobile-menu.visible {
-  display: flex; /* Torna visível quando ativado */
+.mobile-drawer.open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.mobile-drawer.open .drawer-overlay {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Link estilizado no menu */
-.mobile-menu ul li a {
-  font-family: "Bebas Neue", sans-serif; /* Substitua pela fonte do projeto */
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
-  padding: 15px 0; /* Espaçamento maior entre os itens */
-  display: block;
-  text-align: center;
-  transition: color 0.3s ease; /* Transição suave de cor */
+.drawer-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(320px, 85vw);
+  height: 100%;
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+  padding: 80px 32px 40px;
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Hover nos links */
-.mobile-menu ul li a:hover {
-  color: #ec2947; /* Cor de destaque no hover */
+.mobile-drawer.open .drawer-content {
+  transform: translateX(0);
 }
 
-/* Botão de fechar (X) estilizado */
-.close-menu {
+.drawer-close {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 24px;
-  font-family: "Bebas Neue", sans-serif; /* Substitua pela fonte do projeto */
-  color: white;
-  background: none;
-  border: none;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--color-white);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
-.close-menu:hover {
-  color: #ec2947; /* Cor de destaque no hover */
+.drawer-close:hover {
+  background: rgba(236, 41, 71, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-.mobile-menu {
-  background: rgba(0, 0, 0, 0.85); /* Fundo preto com 85% de opacidade */
+.drawer-close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-/* Ajuste da fonte e tamanho no menu mobile */
-.mobile-menu ul {
-  font-family: "Righteous", sans-serif; /* Fonte do projeto */
-  font-size: 1rem; /* Ajuste o tamanho da fonte (pode aumentar ou diminuir conforme necessário) */
-  line-height: 2rem; /* Ajuste o espaçamento vertical entre os itens */
-  text-align: left; /* Mantém alinhado à esquerda */
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drawer-links {
+  list-style: none;
   margin: 0;
   padding: 0;
+  flex: 1;
 }
 
-.mobile-menu ul li {
-  padding: 10px 20px; /* Adiciona um espaçamento interno para os itens */
+.drawer-links li {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all var(--transition-slow);
 }
 
-.mobile-menu ul li a {
-  color: #ffffff; /* Mantém o texto branco para boa visibilidade */
-  text-decoration: none; /* Remove sublinhado */
-  transition: color 0.3s ease; /* Transição suave para hover */
+.mobile-drawer.open .drawer-links li {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.mobile-menu ul li a:hover {
-  color: #ec2947; /* Cor de destaque ao passar o mouse */
+.mobile-drawer.open .drawer-links li:nth-child(1) { transition-delay: 100ms; }
+.mobile-drawer.open .drawer-links li:nth-child(2) { transition-delay: 150ms; }
+.mobile-drawer.open .drawer-links li:nth-child(3) { transition-delay: 200ms; }
+
+.drawer-link {
+  display: block;
+  font-family: var(--font-nav-family);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
 }
-.mobile-menu ul li a {
-  font-size: 18;
-  font-family: "Righteous", sans-serif; /* Fonte do projeto */
+
+.drawer-link:hover {
+  color: var(--color-accent);
+  padding-left: 8px;
+}
+
+.drawer-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.drawer-cta {
+  display: block;
+  font-family: var(--font-nav-family);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 24px;
+  background: var(--color-primary);
+  border-radius: 8px;
+  margin-top: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-slow);
+}
+
+.mobile-drawer.open .drawer-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 250ms;
+}
+
+.drawer-cta:hover {
+  background: #d42240;
+  box-shadow: 0 4px 20px rgba(236, 41, 71, 0.4);
+}
+
+.drawer-cta:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Drawer brand title */
+.drawer-brand {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(236, 41, 71, 0.2);
+}
+
+/* Drawer CTA com ícone inline */
+.drawer-cta svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* === Responsividade Navbar === */
+@media (max-width: 992px) {
+  :root {
+    --nav-gap: 20px;
+    --cta-height: 38px;
+    --cta-padding-x: 14px;
+    --lockup-gap: 10px;
+  }
+  
+  .navbar-link {
+    font-size: 12px;
+  }
+  
+  .navbar-cta .cta-text {
+    display: none;
+  }
+  
+  .navbar-brand-text {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 72px;
+    --navbar-height-shrink: 62px;
+    --logo-height: 36px;
+    --logo-height-shrink: 30px;
+    --cta-height: 38px;
+    --cta-padding-x: 14px;
+    --lockup-gap: 10px;
+  }
+  
+  .navbar-container {
+    padding: 0 16px;
+  }
+  
+  /* Mobile: esconder links, mostrar hamburger */
+  .navbar-nav {
+    display: none;
+  }
+  
+  .navbar-hamburger {
+    display: flex;
+  }
+  
+  .navbar-brand-text {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+  
+  .navbar-actions {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 66px;
+    --navbar-height-shrink: 58px;
+    --logo-height: 32px;
+    --logo-height-shrink: 26px;
+    --cta-height: 36px;
+    --cta-padding-x: 12px;
+    --lockup-gap: 8px;
+  }
+  
+  .navbar-container {
+    padding: 0 12px;
+  }
+  
+  .navbar-brand-text {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  
+  .navbar-cta .cta-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .drawer-content {
+    padding: 70px 24px 32px;
+  }
+  
+  .drawer-link {
+    font-size: 16px;
+    padding: 14px 0;
+  }
+  
+  .drawer-brand {
+    font-size: 1.5rem;
+  }
+}
+
+/* === Modal de Agendamento === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-slow);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  border: 1px solid rgba(236, 41, 71, 0.2);
+  border-radius: 16px;
+  padding: 40px 32px;
+  transform: scale(0.9) translateY(20px);
+  transition: transform var(--transition-slow);
+}
+
+.modal-overlay.open .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--color-white-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: rgba(236, 41, 71, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.modal-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-white);
+  text-align: center;
+  margin: 0 0 8px;
+  letter-spacing: 1px;
+}
+
+.modal-subtitle {
+  font-family: var(--font-nav-family);
+  font-size: 14px;
+  color: var(--color-white-muted);
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-family: var(--font-nav-family);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-white-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  font-family: var(--font-nav-family);
+  font-size: 15px;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: all var(--transition-fast);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: rgba(252, 189, 86, 0.05);
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.form-group select option {
+  background: #1a1a1a;
+  color: var(--color-white);
+}
+
+.modal-submit {
+  font-family: var(--font-nav-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.modal-submit:hover {
+  background: #d42240;
+  box-shadow: 0 4px 20px rgba(236, 41, 71, 0.4);
+  transform: translateY(-2px);
+}
+
+.modal-submit:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* === Responsividade === */
+@media (max-width: 992px) {
+  .navbar-links {
+    gap: 28px;
+  }
+  
+  .navbar-link {
+    font-size: 13px;
+  }
+  
+  .navbar-cta {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 64px;
+    --navbar-height-shrink: 52px;
+  }
+  
+  .navbar-container {
+    padding: 0 16px;
+  }
+  
+  .navbar-nav {
+    display: none;
+  }
+  
+  .navbar-hamburger {
+    display: flex;
+  }
+  
+  .navbar-cta .cta-text {
+    display: none;
+  }
+  
+  .navbar-cta .cta-icon {
+    display: flex;
+  }
+  
+  .navbar-cta {
+    padding: 10px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 12px;
+  }
+  
+  .navbar-logo {
+    height: 30px;
+  }
+  
+  .navbar-glass.scrolled .navbar-logo {
+    height: 26px;
+  }
+  
+  .drawer-content {
+    padding: 70px 24px 32px;
+  }
+  
+  .drawer-link {
+    font-size: 16px;
+    padding: 14px 0;
+  }
+  
+  .modal-content {
+    padding: 32px 24px;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+  }
+}
+
+/* === Classe utilitária === */
+.white-text {
+  color: white !important;
+}
+
+#s-crossfit > div > div > div:nth-child(1) > div > img {
+  max-width: 86px !important;
 }
 
 /* Estiliza o botão do WhatsApp */
@@ -6728,16 +7015,14 @@ div .date {
   flex: 0 0 auto;
 }
 
-.brand-left img,
-.navbar-logo {
+.brand-left img {
   height: 80px;
   width: auto;
   filter: brightness(0) invert(1);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.brand-left img:hover,
-.navbar-logo:hover {
+.brand-left img:hover {
   transform: scale(1.05);
   filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,0.3));
 }
@@ -6949,8 +7234,7 @@ div .date {
     padding: 10px 20px;
   }
   
-  .brand-left img,
-  .navbar-logo {
+  .brand-left img {
     height: 60px;
   }
   
@@ -6977,8 +7261,7 @@ div .date {
     font-size: 1rem;
   }
   
-  .brand-left img,
-  .navbar-logo {
+  .brand-left img {
     height: 55px;
   }
 }
